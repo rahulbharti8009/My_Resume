@@ -5,7 +5,8 @@ import { ArrowLeft, Menu, Moon, SunMedium, SunMoon } from "lucide-react";
 import React, { Dispatch, SetStateAction } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export const ContainerSidebarComp = ({setSidebar, sidebar} : {setSidebar: Dispatch<SetStateAction<boolean>> , sidebar : boolean}) => {
+export const ContainerSidebarComp =  React.memo(({setSidebar, sidebar} : {setSidebar: Dispatch<SetStateAction<boolean>> , sidebar : boolean}) => {
+  
   const dispatch = useDispatch();
   const theme = useSelector((state: MyRootState) => state.theme);
 
@@ -36,4 +37,4 @@ export const ContainerSidebarComp = ({setSidebar, sidebar} : {setSidebar: Dispat
       </div>
     </>
   );
-};
+});
