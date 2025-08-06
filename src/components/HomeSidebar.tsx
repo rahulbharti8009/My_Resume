@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,  Dispatch, SetStateAction} from "react";
 import {
   Facebook,
   Factory,
   Instagram,
   Smile,
   Twitter,
+  X,
   Youtube,
 } from "lucide-react";
 import { FaFacebook } from "react-icons/fa";
@@ -16,18 +17,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { store, MyRootState } from "@/redux/store/store";
 import { toggleTheme } from "@/redux/slice/themeSlice";
 
-export const HomeSidebarComp = () => {
-  const [sidebar, setSidebar] = useState(true);
+export const HomeSidebarComp = ({setSidebar } : {setSidebar: Dispatch<SetStateAction<boolean>>}) => {
+    const [sidebar, setSidebar2] = useState(true);
+
   const dispatch = useDispatch();
   const theme = useSelector((state: MyRootState) => state.theme);
 
-  // useEffect(() => {
-  //   const isDesktop = window.innerWidth >= 768; // Tailwind's md breakpoint
-  //   setSidebar(isDesktop); // true for desktop, false for mobile
-  // }, [sidebar]);
-
   return (
     <>
+    
       <div
         className={`w-[80%] ${
           sidebar ? "" : "hidden"
@@ -38,6 +36,11 @@ export const HomeSidebarComp = () => {
             : "bg-white text-black"
         }`}
       >
+             <X className="md:hidden cursor-pointer right-0 absolute m-2" onClick={()=> {
+              console.log("close")
+              setSidebar(false)
+            }}/>
+
         <Image
           src="/images/profile.png"
           alt="Profile photo"

@@ -15,8 +15,8 @@ export const ContainerSidebarComp = ({setSidebar, sidebar} : {setSidebar: Dispat
         <div className="w-full flex items-center justify-between px-6 py-2 bg-gray-800 text-white shadow-md">
           <div className="flex text-xl font-semibold">
             <Menu className="md:hidden cursor-pointer" onClick={()=> {
-              console.log("kkk")
-              setSidebar(!sidebar)
+              console.log("open")
+              setSidebar(true)
             }}/>
 
             <label>Home</label>

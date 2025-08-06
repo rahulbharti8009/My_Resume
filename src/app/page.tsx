@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
   return (
     <div className="w-full flex min-h-screen">
-      {sidebar && <HomeSidebarComp />}
+      {sidebar && <HomeSidebarComp setSidebar={setSidebar}/>}
       <ContainerSidebarComp setSidebar={setSidebar} sidebar={sidebar}/>
     </div>
   );
